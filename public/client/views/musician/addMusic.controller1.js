@@ -1,11 +1,11 @@
 /**
- * @author Sbeha Lakshisha, Athul Muralidharan
+ * @author Athul Muralidharan
  *
  *
- * This controller is a common controller for pages related to adding music
- * Version 1 :  Added data for genres, owners, trackTypes
+ * This controller is for the view whatisthis1.html
+ * Version 2 :  Added data for genres, owners, trackTypes
  *
- * Optional feature : lincense type
+ * Optional feature : license type
  *
  * Note : once the validation is successful, an alert message will be displayed
  *        To be removed once the navigation is functional
@@ -40,9 +40,8 @@
                     $scope.formData = this.data;
                     //
                     console.log($scope.formData);
-                    alert('page -complete');
                     console.log($location.url);
-                    $location.url("/what-is-this3");
+                    $location.url("/what-is-this2");
 
                 };
             });

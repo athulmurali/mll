@@ -2,13 +2,15 @@
  * @author  Athul Muralidharan
  *
  *
- * This controller is a common controller for pages related to adding music
- * Version 1 :  Added data for genres, owners, trackTypes
+ * This controller is for the view whatisthis5.html
+ * Version 2 :
  *
- * Optional feature : lincense type
+* Navigation is functional
  *
- * Note : once the validation is successful, an alert message will be displayed
- *        To be removed once the navigation is functional
+ * IF upload more button is clicked in the view whatisthis5.html,
+ * it redirects to the view whatisthis1.html
+ *
+ * if Done is clicked, it redirects to 'about'
  */
 
 (function () {
@@ -16,30 +18,28 @@
 
     angular
         .module('MLLabApp')
-        .controller('AddMusicController4',
+        .controller('AddMusicController5',
             function($scope,$location)
             {
 
                 // function to process the form
-                this.submit = function() {
+                this.quit = function() {
                     // data container  to store data
                     $scope.formData = this.data;
                     //
                     console.log($scope.formData);
-                    alert('page -complete');
-                    $location.url("/what-is-this4");
+                    console.log("Quitting.........");
+                    $location.url("/about");
 
                 };
 
-                // function to process the form
-                this.reset = function() {
+                // function - to start over again
+                this.onAgain = function() {
                     // data container  to store data
-                    $scope.formData = theis.data;
-                    //
+                    $scope.formData = this.data;
                     console.log($scope.formData);
-                    alert('page -complete');
-                    $location.url("/what-is-this2");
-
+                    console.log();
+                    $location.url("/what-is-this1");
                 };
             });
 })();

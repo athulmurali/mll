@@ -33,6 +33,7 @@ module.exports = function (app) {
 
     function createUser (req, res) {
         console.log("Inside server service");
+
         var user = req.body;
         con.query('INSERT INTO user (name, email, role, invitedBy) VALUES (?, ?, ?, ?)', [user.name, user.email, 'invitee', null], function(err, result) {
                 if (err) throw err;
@@ -106,11 +107,11 @@ module.exports = function (app) {
 
             con.query('SELECT * FROM user', function(err, results) {
                 if (err) throw err;
-                /*console.log(results[0].id);
+                // /*console.log(results[0].id);
                 console.log(results[0].name);
                 console.log(results[0].email);
                 console.log(results[0].role);
-                console.log(results[0].invitedBy);*/
+                console.log(results[0].invitedBy);
                 res.send(results);
             });
         //});
