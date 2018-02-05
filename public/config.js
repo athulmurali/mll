@@ -37,20 +37,29 @@
             })
             .when("/what-is-this1", {
                 templateUrl: "client/views/musician/whatisthis1.view.html",
-                controller: "AddMusicController as ctrl"
+                controller: "AddMusicController1 as ctrl"
 
             })
             .when("/what-is-this2", {
-                templateUrl: "client/views/musician/whatisthis2.view.html"
+                templateUrl: "client/views/musician/whatisthis2.view.html",
+                controller: "AddMusicController2 as ctrl"
+
             })
             .when("/what-is-this3", {
-                templateUrl: "client/views/musician/whatisthis3.view.html"
+                templateUrl: "client/views/musician/whatisthis3.view.html",
+                controller: "AddMusicController3 as ctrl"
+
+
             })
             .when("/what-is-this4", {
-                templateUrl: "client/views/musician/whatisthis4.view.html"
+                templateUrl: "client/views/musician/whatisthis4.view.html",
+                controller: "AddMusicController4 as ctrl"
+
             })
             .when("/what-is-this5", {
-                templateUrl: "client/views/musician/whatisthis5.view.html"
+                templateUrl: "client/views/musician/whatisthis5.view.html",
+                controller: "AddMusicController5 as ctrl"
+
             })
             .when("/about", {
                 templateUrl: "client/views/about/about.view.html"
