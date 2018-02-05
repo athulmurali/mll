@@ -1,3 +1,7 @@
+/**
+ * @author Sneha Lakhmisha
+ * @
+ */
 (function () {
     angular
         .module("MLLabApp")
@@ -32,7 +36,9 @@
                 templateUrl: "client/views/musician/mprofile.view.html"
             })
             .when("/what-is-this1", {
-                templateUrl: "client/views/musician/whatisthis1.view.html"
+                templateUrl: "client/views/musician/whatisthis1.view.html",
+                controller: "AddMusicController as ctrl"
+
             })
             .when("/what-is-this2", {
                 templateUrl: "client/views/musician/whatisthis2.view.html"
