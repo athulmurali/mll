@@ -35,3 +35,5 @@ The current functionalities supported are:
 - for any reachmailapi issues, you can mail the support and they should reply in a day or two at most
 
 For any other queries, you can write to me at: lakshmisha.s@husky.neu.edu
+
+Now, taken care by : Athul Muralidharan  email: muralidharan.a@husky.neu.edu
