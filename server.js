@@ -54,10 +54,11 @@ app.post('/email', function(req, res) {
     });
 
     var con = mysql.createConnection({
-        host: "tk3mehkfmmrhjg0b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-        user: "aav997830lee8hcc",
-        password: "c9le739ttx5bv8j8",
-        database: "gg0kuw6i240upzen"
+        //mysql://b928185529d66a:fb159e88@us-cdbr-iron-east-05.cleardb.net/heroku_e2a6ca627db81ee?reconnect=true
+        host: "us-cdbr-iron-east-05.cleardb.net",
+        user: "b928185529d66a",
+        password: "fb159e88",
+        database: "heroku_e2a6ca627db81ee"
     });
 
     con.connect(function(err) {
