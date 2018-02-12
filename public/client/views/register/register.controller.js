@@ -10,7 +10,7 @@
             var user = {
                 name : $scope.ctrl.fullname,
                 email : $scope.ctrl.email,
-                password: $scope.ctrl.password;
+                password: $scope.ctrl.password
             };
 
             InviteService
