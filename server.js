@@ -1,8 +1,9 @@
-var express = require('express');
-var app = express();
-var http = require('http');
-var bodyParser = require('body-parser');
-var mysql = require('mysql');
+var express     = require('express');
+var app         = express();
+var http        = require('http');
+var bodyParser  = require('body-parser');
+var mysql       = require('mysql');
+var db          = require('./dbConfig.js'); //added for centralized database config
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -53,15 +54,7 @@ app.post('/email', function(req, res) {
         database: "mlldb"*/
     });
 
-    var dbConfig = {
-
-        //mysql://b928185529d66a:fb159e88@us-cdbr-iron-east-05.cleardb.net/heroku_e2a6ca627db81ee?reconnect=true
-        host: "us-cdbr-iron-east-05.cleardb.net",
-        user: "b928185529d66a",
-        password: "fb159e88",
-        database: "heroku_e2a6ca627db81ee"
-    }
-
+    var dbConfig = db.config;
     var connection;
 
     function handleDisconnect() {
