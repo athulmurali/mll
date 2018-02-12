@@ -53,22 +53,47 @@ app.post('/email', function(req, res) {
         database: "mlldb"*/
     });
 
-    var con = mysql.createConnection({
+    var dbConfig = {
+
         //mysql://b928185529d66a:fb159e88@us-cdbr-iron-east-05.cleardb.net/heroku_e2a6ca627db81ee?reconnect=true
         host: "us-cdbr-iron-east-05.cleardb.net",
         user: "b928185529d66a",
         password: "fb159e88",
         database: "heroku_e2a6ca627db81ee"
-    });
+    }
 
-    con.connect(function(err) {
-        if (err) throw err;
-        console.log("Connected!");
+    var connection;
 
-        con.query('CREATE TABLE IF NOT EXISTS user(id int auto_increment primary key, name varchar(255), password varchar(255), email varchar(255), role ENUM(\'invitee\', \'admin\', \'anr\', \'musician\'), invitedBy int, CONSTRAINT uc_user UNIQUE (id, email)) auto_increment=100', function(err, result) {
-            if (err) throw err;
+    function handleDisconnect() {
+        connection = mysql.createConnection(dbConfig);
+
+        connection.connect(function(err) {
+            if(err) {
+                console.log('error when connecting to db:', err);
+                setTimeout(handleDisconnect, 2000);
+            }
+
+            console.log("Connected to db successfully!");
+
+            connection.query('CREATE TABLE IF NOT EXISTS user(id int auto_increment primary key, name varchar(255), password varchar(255), email varchar(255), role ENUM(\'invitee\', \'admin\', \'anr\', \'musician\'), invitedBy int, CONSTRAINT uc_user UNIQUE (id, email)) auto_increment=100', function(err, result) {
+                if (err) throw err;
+            });
+
+            connection.on('error', function(err) {
+                console.log('db error', err);
+                if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+                    handleDisconnect();                         // lost due to either server restart, or a
+                } else {                                      // connnection idle timeout (the wait_timeout
+                    throw err;                                  // server variable configures this)
+                }
+            });
+
         });
-    });
+
+    }
+
+    handleDisconnect();
+
 
 //app.listen(3000);
     app.listen(process.env.PORT || 3000, function(){
