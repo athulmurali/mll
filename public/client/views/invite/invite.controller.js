@@ -24,7 +24,9 @@
         this.showMailContent = () => {
             this.showMailContentFlag = true;
             $scope.firstName = $scope.email.name.substr(0, $scope.email.name.indexOf(' '));
-            this.messageBody = "Dear " + $scope.firstName + ",\n " + "Please register for the MLL App here: https://guarded-caverns-60590.herokuapp.com/#!/register" + "\n Best, David";
+            this.messageBody = "Dear " + $scope.firstName + ",\n " +
+                "Please register for the MLL App here: https://localhost:3000/#!/intro" +
+                "\n Best, David";
             $scope.email.firstname = $scope.email.name.substr(0, $scope.email.name.indexOf(' '));
         }
 

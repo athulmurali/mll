@@ -21,6 +21,7 @@
 
         function getInviteeList() {
             var url = '/api/invitees';
+            console.log("getting invitees- client---------");
             return $http.get(url);
         }
 

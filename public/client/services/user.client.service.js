@@ -19,7 +19,11 @@
                 password: password
             };
             var url = '/api/login';
+            console.log("client --user login function accessed");
+            console.log("posted object : ");
+            console.log($http.post(url, user));
             return $http.post(url, user);
+
         }
 
         function checkLogin() {

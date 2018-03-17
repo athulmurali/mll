@@ -88,6 +88,16 @@ app.post('/email', function(req, res) {
     handleDisconnect();
 
 
+
+var fs = require('fs');
+
+try {
+    var data = fs.readFileSync('data_to_load/instruments/strings.txt', 'utf8');
+    console.log(data);
+} catch(e) {
+    console.log('Error:', e.stack);
+}
+
 //app.listen(3000);
     app.listen(process.env.PORT || 3000, function(){
         console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);

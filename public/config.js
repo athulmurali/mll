@@ -11,6 +11,10 @@
                 templateUrl: "client/views/login/login.view.html",
                 controller: "LoginController as ctrl"
             })
+            .when("/intro", {
+                templateUrl: "client/views/introduction/introduction.view.html",
+                controller: "IntroductionController as ctrl"
+            })
             .when("/register", {
                 templateUrl: "client/views/register/register.view.html",
                 controller: "RegisterController as ctrl"

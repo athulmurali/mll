@@ -8,27 +8,20 @@ module.exports = function (app) {
     app.get('/api/invitees', getInviteeList);
     app.put('/api/user/accept', markUserAcceptance);
 
-    /*var con = mysql.createConnection({
-        host: "localhost",
-        user: "sneha",
-        password: "abcd1234",
-        database: "mlldb"
-    });*/
-	
-	var con = mysql.createConnection({
-		//host: "localhost",
-		host: "tk3mehkfmmrhjg0b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-		//user: "sneha",
-		//password: "abcd1234",
-		user: "aav997830lee8hcc",
-		password: "c9le739ttx5bv8j8",
-		//database: "mlldb",
-		database: "gg0kuw6i240upzen"
-	});
+    var dbConfig = {
+
+        //mysql://b928185529d66a:fb159e88@us-cdbr-iron-east-05.cleardb.net/heroku_e2a6ca627db81ee?reconnect=true
+        host: "us-cdbr-iron-east-05.cleardb.net",
+        user: "b928185529d66a",
+        password: "fb159e88",
+        database: "heroku_e2a6ca627db81ee"
+    };
+
+	var con = mysql.createConnection(dbConfig);
 
     con.connect(function(err) {
         if (err) throw err;
-        console.log("Connected!");
+        console.log("invite service -server db Connected!");
     });
 
     function createUser (req, res) {
@@ -107,11 +100,9 @@ module.exports = function (app) {
 
             con.query('SELECT * FROM user', function(err, results) {
                 if (err) throw err;
-                // /*console.log(results[0].id);
-                console.log(results[0].name);
-                console.log(results[0].email);
-                console.log(results[0].role);
-                console.log(results[0].invitedBy);
+
+                console.log(results[0]);
+
                 res.send(results);
             });
         //});

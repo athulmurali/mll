@@ -27,6 +27,12 @@
                     </div>
                     <br/>
                     <div class="input-group">
+                        <span class="input-group-addon"><i class="fa "></i></span>
+                        <input type="text" name="userID" class="form-control" ng-model="ctrl.userid"
+                               placeholder="userID" required />
+                    </div>
+                    <br/>
+                    <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
                         <input type="email" name="email" class="form-control" ng-model="ctrl.email"
                                placeholder="Email Address" required />
@@ -53,6 +59,12 @@
                                 <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
                                 <input type="password" name="password" class="form-control" ng-model="ctrl.password"
                                        placeholder="Password" required />
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa "></i></span>
+                                <input type="text" name="address" class="form-control" ng-model="ctrl.address"
+                                       placeholder="Full Address" required />
                             </div>
                             <div class="alert alert-danger" role="alert"
                                  ng-show="ctrl.registrationForm.password.$invalid && ctrl.registrationForm.$submitted">

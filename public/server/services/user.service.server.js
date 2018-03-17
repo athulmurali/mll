@@ -1,6 +1,7 @@
 module.exports = function (app) {
     "use strict";
 
+    var mysql = require("mysql");
     var passport = require('passport');
     var bcrypt = require("bcrypt-nodejs");
     var LocalStrategy = require('passport-local').Strategy;
@@ -25,12 +26,16 @@ module.exports = function (app) {
     app.post('/api/logout', logout);
     app.post('/api/user', createUser);
 
-    var con = mysql.createConnection({
-        host: "localhost",
-        user: "sneha",
-        password: "abcd1234",
-        database: "mlldb"
-    });
+    var dbConfig = {
+
+        //mysql://b928185529d66a:fb159e88@us-cdbr-iron-east-05.cleardb.net/heroku_e2a6ca627db81ee?reconnect=true
+        host: "us-cdbr-iron-east-05.cleardb.net",
+        user: "b928185529d66a",
+        password: "fb159e88",
+        database: "heroku_e2a6ca627db81ee"
+    };
+
+    var con = mysql.createConnection(dbConfig);
 
     function serializeUser(user, done) {
         done(null, user);
@@ -42,6 +47,7 @@ module.exports = function (app) {
 
     function login(req, res) {
         var user = req.user;
+        console.log("login-function accessed - server")
         res.json(user);
     }
 
@@ -60,7 +66,7 @@ module.exports = function (app) {
 
         con.connect(function(err) {
             if (err) throw err;
-            console.log("Connected!");
+            console.log("Connected! - for user creation");
             con.query('INSERT INTO user (name, email, role, invitedBy) VALUES (?, ?, ?, ?)', [user.id, user.name, user.email, user.role, null], function(err, result) {
                 if (err) throw err;
                 con.query('SELECT * FROM user', function(err, results) {

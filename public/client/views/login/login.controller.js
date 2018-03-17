@@ -13,10 +13,12 @@
             $rootScope.isLoggedIn = true;
             if (this.username === "anr") {
                 $rootScope.roleanr = true;
+                $location.url("/anrrequest");
             } else {
                 $rootScope.roleanr = false;
+                // $location.url("/");
             }
-            $location.url("/anrrequest");
+
         }
     }
 
