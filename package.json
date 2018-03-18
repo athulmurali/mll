@@ -7,12 +7,14 @@
   },
   "dependencies": {
     "angular-file-upload": "^2.5.0",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "del": "^3.0.0",
     "express": "^4.15.5",
+    "express-session": "^1.15.6",
     "jade": "~1.11.0",
     "lokijs": "^1.5.3",
     "mongoose": "^5.0.4",
@@ -20,6 +22,8 @@
     "multer": "^1.3.0",
     "mysql": "^2.15.0",
     "npm": "^5.7.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "reachmailapi": "^0.2.4",
     "serve-favicon": "~2.4.5"
   }

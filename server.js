@@ -90,7 +90,7 @@ app.post('/email', function(req, res) {
 
 
 var fs = require('fs');
-
+console.log("server.js :reading instruments ....");
 try {
     var data = fs.readFileSync('data_to_load/instruments/strings.txt', 'utf8');
     console.log(data);

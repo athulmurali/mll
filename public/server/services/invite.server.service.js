@@ -94,9 +94,10 @@ module.exports = function (app) {
     }
 
     function getInviteeList(req, res) {
-        //con.connect(function(err) {
-          //  if (err) throw err;
-            //console.log("Connected!");
+        console.log("Inside get invitee list");
+        // con.connect(function(err) {
+        //    if (err) throw err;
+
 
             con.query('SELECT * FROM user', function(err, results) {
                 if (err) throw err;
@@ -105,12 +106,11 @@ module.exports = function (app) {
 
                 res.send(results);
             });
-        //});
+        // });
     }
 
     function markUserAcceptance(req, res) {
         var user = req.body;
-        console.log("inside server service");
         console.log(user);
         console.log(user.name);
         console.log(user.email);
@@ -121,5 +121,5 @@ module.exports = function (app) {
             res.send(result);
         });
     }
-
+    console.log("loaded : invite.service.server");
 };
